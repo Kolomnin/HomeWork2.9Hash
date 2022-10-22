@@ -1,11 +1,8 @@
 package hw1plusHW2Task1;
 
 import java.util.Set;
-
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.Objects;
-import java.util.Set;
 
 public class RecipesBook {
     private final Set<Recipes> recipesBook;
@@ -37,8 +34,6 @@ public class RecipesBook {
 
     @Override
     public String toString() {
-        return "Книга рецептов{" +
-                "recipesBook=" + recipesBook +
-                '}';
+        return "Книга рецептов: " + recipesBook;
     }
 }

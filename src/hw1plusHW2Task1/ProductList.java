@@ -5,27 +5,27 @@ import java.util.Objects;
 import java.util.Set;
 
 public class ProductList {
-    private final Set<Product> productSet;
+    private final Set<Product> productList;
 
     public ProductList() {
-        productSet = new HashSet<>();
+        productList = new HashSet<>();
     }
 
     public void addProduct(Product product)  {
-        if (productSet.contains(product)) {
-            throw new RuntimeException("В списке уже есть продукт - " + product.getProductsName());
+        if (productList.equals(product)) {
+            throw new RuntimeException("Этот продукту уже есть в сумке - " + product.getProductName());
 
         } else {
-            productSet.add(product);
+            productList.add(product);
         }
     }
 
     public void delProduct(Product product) {
-        productSet.remove(product);
+        productList.remove(product);
     }
     public Double sumPriceProduct(){
         double sum = 0;
-        for (Product product : productSet) {
+        for (Product product : productList) {
             sum += (product.getPrice() * product.getWeight());
         }
 
@@ -37,18 +37,17 @@ public class ProductList {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ProductList that = (ProductList) o;
-        return Objects.equals(productSet, that.productSet);
+        return Objects.equals(productList, that.productList);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(productSet);
+        return Objects.hash(productList);
     }
 
     @Override
     public String toString() {
-        return "Список продуктов {" + "\n" +
-                productSet +
-                '}';
+        return "\nСписок продуктов: " +
+                productList + "\n";
     }
 }
